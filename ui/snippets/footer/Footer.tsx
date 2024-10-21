@@ -35,7 +35,14 @@ const Footer = () => {
   const issueUrl = useIssueUrl(backendVersionData?.backend_version);
   const logoColor = useColorModeValue('blue.600', 'white');
 
-  const BLOCKSCOUT_LINKS = [];
+  const BLOCKSCOUT_LINKS = [
+    {
+      icon: 'social/canny' as const,
+      iconSize: '20px',
+      text: 'Telegram',
+      url: '#',
+    },
+  ];
 
   const frontendLink = (() => {
     if (config.UI.footer.frontendVersion) {
