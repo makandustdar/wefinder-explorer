@@ -54,12 +54,12 @@ export default function useNavItems(): ReturnType {
     } : null;
 
     const verifiedContracts: NavItem | null =
-            {
-              text: 'Verified contracts',
-              nextRoute: { pathname: '/verified-contracts' as const },
-              icon: 'verified',
-              isActive: pathname === '/verified-contracts',
-            };
+     {
+       text: 'Verified contracts',
+       nextRoute: { pathname: '/verified-contracts' as const },
+       icon: 'verified',
+       isActive: pathname === '/verified-contracts',
+     };
     const ensLookup = config.features.nameService.isEnabled ? {
       text: 'Name services lookup',
       nextRoute: { pathname: '/name-domains' as const },
@@ -181,6 +181,50 @@ export default function useNavItems(): ReturnType {
       ].filter(Boolean);
     }
 
+    const apiNavItems: Array<NavItem> = [
+      config.features.restApiDocs.isEnabled ? {
+        text: 'REST API',
+        nextRoute: { pathname: '/api-docs' as const },
+        icon: 'restAPI',
+        isActive: pathname === '/api-docs',
+      } : null,
+      config.features.graphqlApiDocs.isEnabled ? {
+        text: 'GraphQL',
+        nextRoute: { pathname: '/graphiql' as const },
+        icon: 'graphQL',
+        isActive: pathname === '/graphiql',
+      } : null,
+      !config.UI.navigation.hiddenLinks?.rpc_api && {
+        text: 'RPC API',
+        icon: 'RPC',
+        url: 'https://docs.blockscout.com/for-users/api/rpc-endpoints',
+      },
+      !config.UI.navigation.hiddenLinks?.eth_rpc_api && {
+        text: 'Eth RPC API',
+        icon: 'RPC',
+        url: ' https://docs.blockscout.com/for-users/api/eth-rpc',
+      },
+    ].filter(Boolean);
+
+    const otherNavItems: Array<NavItem> | Array<Array<NavItem>> = [
+      {
+        text: 'Verify contract',
+        nextRoute: { pathname: '/contract-verification' as const },
+        isActive: pathname.startsWith('/contract-verification'),
+      },
+      config.features.gasTracker.isEnabled && {
+        text: 'Gas tracker',
+        nextRoute: { pathname: '/gas-tracker' as const },
+        isActive: pathname.startsWith('/gas-tracker'),
+      },
+      config.features.publicTagsSubmission.isEnabled && {
+        text: 'Submit public tag',
+        nextRoute: { pathname: '/public-tags/submit' as const },
+        isActive: pathname.startsWith('/public-tags/submit'),
+      },
+      ...config.UI.navigation.otherLinks,
+    ].filter(Boolean);
+
     const mainNavItems: ReturnType['mainNavItems'] = [
       {
         text: 'Blockchain',
@@ -193,6 +237,30 @@ export default function useNavItems(): ReturnType {
         nextRoute: { pathname: '/tokens' as const },
         icon: 'token',
         isActive: pathname.startsWith('/token'),
+      },
+      config.features.marketplace.isEnabled ? {
+        text: 'DApps',
+        nextRoute: { pathname: '/apps' as const },
+        icon: 'apps',
+        isActive: pathname.startsWith('/app'),
+      } : null,
+      config.features.stats.isEnabled ? {
+        text: 'Charts & stats',
+        nextRoute: { pathname: '/stats' as const },
+        icon: 'stats',
+        isActive: pathname.startsWith('/stats'),
+      } : null,
+      apiNavItems.length > 0 && {
+        text: 'API',
+        icon: 'restAPI',
+        isActive: apiNavItems.some(item => isInternalItem(item) && item.isActive),
+        subItems: apiNavItems,
+      },
+      {
+        text: 'Other',
+        icon: 'gear',
+        isActive: otherNavItems.flat().some(item => isInternalItem(item) && item.isActive),
+        subItems: otherNavItems,
       },
     ].filter(Boolean);
 

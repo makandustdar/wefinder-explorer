@@ -4,12 +4,11 @@
   "private": false,
   "homepage": "https://github.com/blockscout/frontend#readme",
   "engines": {
-    "node": "20.11.0",
-    "npm": "10.2.4"
+    "node": "20.17.0",
+    "npm": "10.8.2"
   },
   "scripts": {
     "dev": "./tools/scripts/dev.sh",
-    "dev:dev": "next dev",
     "dev:preset": "./tools/scripts/dev.preset.sh",
     "dev:preset:sync": "tsc -p ./tools/preset-sync/tsconfig.json && node ./tools/preset-sync/index.js",
     "build": "next build",
@@ -27,8 +26,8 @@
     "svg:build-sprite": "icons build -i ./icons -o ./public/icons --optimize",
     "test:pw": "./tools/scripts/pw.sh",
     "test:pw:local": "export NODE_PATH=$(pwd)/node_modules && yarn test:pw",
-    "test:pw:docker": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.41.1-focal ./tools/scripts/pw.docker.sh",
-    "test:pw:docker:deps": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.41.1-focal ./tools/scripts/pw.docker.deps.sh",
+    "test:pw:docker": "docker run --rm --ipc=host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.47.2-focal ./tools/scripts/pw.docker.sh",
+    "test:pw:docker:deps": "docker run --rm --ipc=host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.47.2-focal ./tools/scripts/pw.docker.deps.sh",
     "test:pw:ci": "yarn test:pw --project=$PW_PROJECT",
     "test:pw:detect-affected": "node ./deploy/tools/affected-tests/index.js",
     "test:jest": "jest",
