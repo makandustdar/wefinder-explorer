@@ -30,6 +30,7 @@ const TestApp = ({ children }: {children: React.ReactNode}) => {
     },
   }));
 
+  // @ts-ignore
   return (
     <ChakraProvider theme={ theme }>
       <QueryClientProvider client={ queryClient }>
