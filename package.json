@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "./tools/scripts/dev.sh",
+    "dev:dev": "next dev",
     "dev:preset": "./tools/scripts/dev.preset.sh",
     "dev:preset:sync": "tsc -p ./tools/preset-sync/tsconfig.json && node ./tools/preset-sync/index.js",
     "build": "next build",
@@ -107,6 +108,7 @@
     "react-jazzicon": "^1.0.4",
     "react-number-format": "^5.3.1",
     "react-scroll": "^1.8.7",
+    "scheduler": "^0.23.2",
     "swagger-ui-react": "^5.9.0",
     "use-font-face-observer": "^1.2.1",
     "valibot": "0.38.0",
@@ -163,8 +165,5 @@
     "vite-plugin-svgr": "^2.2.2",
     "vite-tsconfig-paths": "^3.5.2",
     "ws": "^8.17.1"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
   }
 }
