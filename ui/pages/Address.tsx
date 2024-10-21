@@ -10,6 +10,7 @@ import getCheckedSummedAddress from 'lib/address/getCheckedSummedAddress';
 import useAddressMetadataInfoQuery from 'lib/address/useAddressMetadataInfoQuery';
 import useApiQuery from 'lib/api/useApiQuery';
 import { useAppContext } from 'lib/contexts/app';
+import useAddressProfileApiQuery from 'lib/hooks/useAddressProfileApiQuery';
 import useContractTabs from 'lib/hooks/useContractTabs';
 import useIsSafeAddress from 'lib/hooks/useIsSafeAddress';
 import getNetworkValidationActionText from 'lib/networks/getNetworkValidationActionText';
@@ -23,6 +24,7 @@ import AddressBlocksValidated from 'ui/address/AddressBlocksValidated';
 import AddressCoinBalance from 'ui/address/AddressCoinBalance';
 import AddressContract from 'ui/address/AddressContract';
 import AddressDetails from 'ui/address/AddressDetails';
+import AddressEpochRewards from 'ui/address/AddressEpochRewards';
 import AddressInternalTxs from 'ui/address/AddressInternalTxs';
 import AddressLogs from 'ui/address/AddressLogs';
 import AddressMud from 'ui/address/AddressMud';
@@ -54,6 +56,7 @@ import RoutedTabs from 'ui/shared/Tabs/RoutedTabs';
 const TOKEN_TABS = [ 'tokens_erc20', 'tokens_nfts', 'tokens_nfts_collection', 'tokens_nfts_list' ];
 
 const txInterpretation = config.features.txInterpretation;
+const addressProfileAPIFeature = config.features.addressProfileAPI;
 
 const AddressPageContent = () => {
   const router = useRouter();
@@ -92,6 +95,7 @@ const AddressPageContent = () => {
 
   const addressesForMetadataQuery = React.useMemo(() => ([ hash ].filter(Boolean)), [ hash ]);
   const addressMetadataQuery = useAddressMetadataInfoQuery(addressesForMetadataQuery, areQueriesEnabled);
+  const userPropfileApiQuery = useAddressProfileApiQuery(hash, addressProfileAPIFeature.isEnabled && areQueriesEnabled);
 
   const addressEnsDomainsQuery = useApiQuery('addresses_lookup', {
     pathParams: { chainId: config.chain.id },
@@ -192,6 +196,12 @@ const AddressPageContent = () => {
         count: addressTabsCountersQuery.data?.internal_txs_count,
         component: <AddressInternalTxs scrollRef={ tabsScrollRef } shouldRender={ !isTabsLoading } isQueryEnabled={ areQueriesEnabled }/>,
       },
+      addressTabsCountersQuery.data?.celo_election_rewards_count ? {
+        id: 'epoch_rewards',
+        title: 'Epoch rewards',
+        count: addressTabsCountersQuery.data?.celo_election_rewards_count,
+        component: <AddressEpochRewards scrollRef={ tabsScrollRef } shouldRender={ !isTabsLoading } isQueryEnabled={ areQueriesEnabled }/>,
+      } : undefined,
       {
         id: 'coin_balance_history',
         title: 'Coin balance history',
@@ -248,6 +258,8 @@ const AddressPageContent = () => {
     mudTablesCountQuery.data,
   ]);
 
+  const usernameApiTag = userPropfileApiQuery.data?.user_profile?.username;
+
   const tags: Array<EntityTag> = React.useMemo(() => {
     return [
       ...(addressQuery.data?.public_tags?.map((tag) => ({ slug: tag.label, name: tag.display_name, tagType: 'custom' as const, ordinal: -1 })) || []),
@@ -258,6 +270,18 @@ const AddressPageContent = () => {
       addressQuery.data?.implementations?.length ? { slug: 'proxy', name: 'Proxy', tagType: 'custom' as const, ordinal: -1 } : undefined,
       addressQuery.data?.token ? { slug: 'token', name: 'Token', tagType: 'custom' as const, ordinal: -1 } : undefined,
       isSafeAddress ? { slug: 'safe', name: 'Multisig: Safe', tagType: 'custom' as const, ordinal: -10 } : undefined,
+      addressProfileAPIFeature.isEnabled && usernameApiTag ? {
+        slug: 'username_api',
+        name: usernameApiTag,
+        tagType: 'custom' as const,
+        ordinal: 11,
+        meta: {
+          tagIcon: addressProfileAPIFeature.tagIcon,
+          bgColor: addressProfileAPIFeature.tagBgColor,
+          textColor: addressProfileAPIFeature.tagTextColor,
+          tagUrl: addressProfileAPIFeature.tagLinkTemplate ? addressProfileAPIFeature.tagLinkTemplate.replace('{username}', usernameApiTag) : undefined,
+        },
+      } : undefined,
       config.features.userOps.isEnabled && userOpsAccountQuery.data ?
         { slug: 'user_ops_acc', name: 'Smart contract wallet', tagType: 'custom' as const, ordinal: -10 } :
         undefined,
@@ -265,9 +289,9 @@ const AddressPageContent = () => {
         { slug: 'mud', name: 'MUD World', tagType: 'custom' as const, ordinal: -10 } :
         undefined,
       ...formatUserTags(addressQuery.data),
-      ...(addressMetadataQuery.data?.addresses?.[hash.toLowerCase()]?.tags || []),
+      ...(addressMetadataQuery.data?.addresses?.[hash.toLowerCase()]?.tags.filter(tag => tag.tagType !== 'note') || []),
     ].filter(Boolean).sort(sortEntityTags);
-  }, [ addressMetadataQuery.data, addressQuery.data, hash, isSafeAddress, userOpsAccountQuery.data, mudTablesCountQuery.data ]);
+  }, [ addressMetadataQuery.data, addressQuery.data, hash, isSafeAddress, userOpsAccountQuery.data, mudTablesCountQuery.data, usernameApiTag ]);
 
   const titleContentAfter = (
     <EntityTags
@@ -275,7 +299,8 @@ const AddressPageContent = () => {
       isLoading={
         isLoading ||
         (config.features.userOps.isEnabled && userOpsAccountQuery.isPlaceholderData) ||
-        (config.features.addressMetadata.isEnabled && addressMetadataQuery.isPending)
+        (config.features.addressMetadata.isEnabled && addressMetadataQuery.isPending) ||
+        (addressProfileAPIFeature.isEnabled && userPropfileApiQuery.isPending)
       }
     />
   );
