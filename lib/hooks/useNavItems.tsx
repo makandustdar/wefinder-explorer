@@ -233,24 +233,6 @@ export default function useNavItems(): ReturnType {
                 icon: 'token',
                 isActive: pathname.startsWith('/token'),
             },
-            // config.features.marketplace.isEnabled ? {
-            //     text: 'DApps',
-            //     nextRoute: {pathname: '/apps' as const},
-            //     icon: 'apps',
-            //     isActive: pathname.startsWith('/app'),
-            // } : null,
-            // config.features.stats.isEnabled ? {
-            //     text: 'Charts & stats',
-            //     nextRoute: {pathname: '/stats' as const},
-            //     icon: 'stats',
-            //     isActive: pathname === '/stats',
-            // } : null,
-            // {
-            //     text: 'Other',
-            //     icon: 'gear',
-            //     isActive: otherNavItems.flat().some(item => isInternalItem(item) && item.isActive),
-            //     subItems: otherNavItems,
-            // },
         ].filter(Boolean);
 
         const accountNavItems: ReturnType['accountNavItems'] = [
