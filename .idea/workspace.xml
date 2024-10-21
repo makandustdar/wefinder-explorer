@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c30f1b8-c225-4f5e-8419-904dc574959c" name="Changes" comment=":recycle: New update" />
+    <list default="true" id="9c30f1b8-c225-4f5e-8419-904dc574959c" name="Changes" comment=":recycle: New update">
+      <change afterPath="$PROJECT_DIR$/icons/networks/logo-studiochain.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/networks/logo-placeholder.svg" beforeDir="false" afterPath="$PROJECT_DIR$/icons/networks/logo-placeholder.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/hooks/useNavItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/hooks/useNavItems.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/snippets/footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/snippets/footer/Footer.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +22,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2nkTZwVolXmURUZOAEpEn5zMTyo" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -26,18 +35,25 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Projects/wefinder-frontend",
+    "last_opened_file_path": "C:/Projects/wefinder-frontend/icons/networks",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "C:\\Projects\\wefinder-frontend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\wefinder-frontend\icons\networks" />
       <recent name="C:\Projects\wefinder-frontend" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\wefinder-frontend\icons\networks" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -56,6 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729516135040</updated>
       <workItem from="1729516136196" duration="606000" />
+      <workItem from="1729517845980" duration="3265000" />
     </task>
     <task id="LOCAL-00001" summary=":recycle: New update">
       <option name="closed" value="true" />
@@ -65,11 +82,30 @@
       <option name="project" value="LOCAL" />
       <updated>1729516310145</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary=":recycle: New update">
+      <option name="closed" value="true" />
+      <created>1729518467085</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729518467085</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=":recycle: New update" />

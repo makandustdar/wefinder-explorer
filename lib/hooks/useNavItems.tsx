@@ -207,20 +207,10 @@ export default function useNavItems(): ReturnType {
     ].filter(Boolean);
 
     const otherNavItems: Array<NavItem> | Array<Array<NavItem>> = [
-      {
-        text: 'Verify contract',
-        nextRoute: { pathname: '/contract-verification' as const },
-        isActive: pathname.startsWith('/contract-verification'),
-      },
       config.features.gasTracker.isEnabled && {
         text: 'Gas tracker',
         nextRoute: { pathname: '/gas-tracker' as const },
         isActive: pathname.startsWith('/gas-tracker'),
-      },
-      config.features.publicTagsSubmission.isEnabled && {
-        text: 'Submit public tag',
-        nextRoute: { pathname: '/public-tags/submit' as const },
-        isActive: pathname.startsWith('/public-tags/submit'),
       },
       ...config.UI.navigation.otherLinks,
     ].filter(Boolean);
@@ -237,24 +227,6 @@ export default function useNavItems(): ReturnType {
         nextRoute: { pathname: '/tokens' as const },
         icon: 'token',
         isActive: pathname.startsWith('/token'),
-      },
-      config.features.marketplace.isEnabled ? {
-        text: 'DApps',
-        nextRoute: { pathname: '/apps' as const },
-        icon: 'apps',
-        isActive: pathname.startsWith('/app'),
-      } : null,
-      config.features.stats.isEnabled ? {
-        text: 'Charts & stats',
-        nextRoute: { pathname: '/stats' as const },
-        icon: 'stats',
-        isActive: pathname.startsWith('/stats'),
-      } : null,
-      apiNavItems.length > 0 && {
-        text: 'API',
-        icon: 'restAPI',
-        isActive: apiNavItems.some(item => isInternalItem(item) && item.isActive),
-        subItems: apiNavItems,
       },
       {
         text: 'Other',
