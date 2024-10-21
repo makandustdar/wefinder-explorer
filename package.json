@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@blockscout/bens-types": "1.4.1",
-    "@blockscout/stats-types": "1.6.0",
+    "@blockscout/stats-types": "2.0.0",
     "@blockscout/visualizer-types": "0.2.0",
     "@chakra-ui/react": "2.7.1",
     "@chakra-ui/theme-tools": "^2.0.18",
@@ -108,7 +108,6 @@
     "react-jazzicon": "^1.0.4",
     "react-number-format": "^5.3.1",
     "react-scroll": "^1.8.7",
-    "scheduler": "^0.23.2",
     "swagger-ui-react": "^5.9.0",
     "use-font-face-observer": "^1.2.1",
     "valibot": "0.38.0",
@@ -117,8 +116,8 @@
     "xss": "^1.0.14"
   },
   "devDependencies": {
-    "@playwright/experimental-ct-react": "1.41.1",
-    "@playwright/test": "1.41.1",
+    "@playwright/experimental-ct-react": "1.47.2",
+    "@playwright/test": "1.47.2",
     "@svgr/webpack": "^6.5.1",
     "@tanstack/eslint-plugin-query": "^5.0.5",
     "@testing-library/react": "^14.0.0",
@@ -130,7 +129,7 @@
     "@types/jest": "^29.2.0",
     "@types/js-cookie": "^3.0.2",
     "@types/mixpanel-browser": "^2.38.1",
-    "@types/node": "20.11.0",
+    "@types/node": "20.16.7",
     "@types/phoenix": "^1.5.4",
     "@types/qrcode": "^1.5.0",
     "@types/react": "18.0.9",
@@ -163,7 +162,7 @@
     "ts-node": "^10.9.1",
     "typescript": "5.4.2",
     "vite-plugin-svgr": "^2.2.2",
-    "vite-tsconfig-paths": "^3.5.2",
+    "vite-tsconfig-paths": "4.3.2",
     "ws": "^8.17.1"
   },
   "lint-staged": {
