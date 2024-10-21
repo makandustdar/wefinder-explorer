@@ -169,15 +169,6 @@ export default function useNavItems(): ReturnType {
         userOps,
         blocks,
         topAccounts,
-        validators,
-        verifiedContracts,
-        ensLookup,
-        config.features.beaconChain.isEnabled && {
-          text: 'Withdrawals',
-          nextRoute: { pathname: '/withdrawals' as const },
-          icon: 'arrows/north-east',
-          isActive: pathname === '/withdrawals',
-        },
       ].filter(Boolean);
     }
 
