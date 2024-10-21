@@ -17,7 +17,7 @@ const currentChain = {
   },
   blockExplorers: {
     'default': {
-      name: 'Blockscout',
+      name: 'Wefinder',
       url: config.app.baseUrl,
     },
   },

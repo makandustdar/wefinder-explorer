@@ -36,7 +36,7 @@ test('tag with link and long name +@dark-mode', async({ render }) => {
 test('tag with tooltip +@dark-mode', async({ render, page, mockAssetResponse }) => {
   await mockAssetResponse(addressMetadataMock.tagWithTooltip.meta?.tooltipIcon as string, './playwright/mocks/image_s.jpg');
   const component = await render(<EntityTag data={ addressMetadataMock.tagWithTooltip }/>);
-  await component.getByText('BlockscoutHeroes').hover();
-  await page.getByText('Blockscout team member').waitFor({ state: 'visible' });
+  await component.getByText('WefinderHeroes').hover();
+  await page.getByText('Wefinder team member').waitFor({ state: 'visible' });
   await expect(page).toHaveScreenshot();
 });

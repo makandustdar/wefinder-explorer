@@ -3,38 +3,38 @@
 exports[`generates correct metadata for: dynamic route 1`] = `
 {
   "canonical": undefined,
-  "description": "View transaction 0x12345 on Blockscout (Blockscout) Explorer",
+  "description": "View transaction 0x12345 on Wefinder (Wefinder) Explorer",
   "opengraph": {
     "description": "",
     "imageUrl": "",
-    "title": "Blockscout transaction 0x12345 | Blockscout",
+    "title": "Wefinder transaction 0x12345 | Wefinder",
   },
-  "title": "Blockscout transaction 0x12345 | Blockscout",
+  "title": "Wefinder transaction 0x12345 | Wefinder",
 }
 `;
 
 exports[`generates correct metadata for: dynamic route with API data 1`] = `
 {
   "canonical": undefined,
-  "description": "0x12345, balances and analytics on the Blockscout (Blockscout) Explorer",
+  "description": "0x12345, balances and analytics on the Wefinder (Wefinder) Explorer",
   "opengraph": {
     "description": "",
     "imageUrl": "",
-    "title": "Blockscout USDT token details | Blockscout",
+    "title": "Wefinder USDT token details | Wefinder",
   },
-  "title": "Blockscout USDT token details | Blockscout",
+  "title": "Wefinder USDT token details | Wefinder",
 }
 `;
 
 exports[`generates correct metadata for: static route 1`] = `
 {
   "canonical": "http://localhost:3000/txs",
-  "description": "Blockscout is the #1 open-source blockchain explorer available today. 100+ chains and counting rely on Blockscout data availability, APIs, and ecosystem tools to support their networks.",
+  "description": "Wefinder is the #1 open-source blockchain explorer available today. 100+ chains and counting rely on Wefinder data availability, APIs, and ecosystem tools to support their networks.",
   "opengraph": {
     "description": "",
     "imageUrl": "http://localhost:3000/static/og_placeholder.png",
-    "title": "Blockscout transactions - Blockscout explorer | Blockscout",
+    "title": "Wefinder transactions - Wefinder explorer | Wefinder",
   },
-  "title": "Blockscout transactions - Blockscout explorer | Blockscout",
+  "title": "Wefinder transactions - Wefinder explorer | Wefinder",
 }
 `;

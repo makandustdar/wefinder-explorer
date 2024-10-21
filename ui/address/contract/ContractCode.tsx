@@ -181,7 +181,7 @@ const ContractCode = ({ addressHash, contractQuery, channel }: Props) => {
             href="https://docs.blockscout.com/about/features/ethereum-bytecode-database-microservice"
             fontSize="md"
           >
-            Blockscout Bytecode Database
+            Wefinder Bytecode Database
           </LinkExternal>
         </Alert>
       );
@@ -233,7 +233,7 @@ const ContractCode = ({ addressHash, contractQuery, channel }: Props) => {
         ) }
         { !data?.is_verified && data?.verified_twin_address_hash && (!data?.proxy_type || data.proxy_type === 'unknown') && (
           <Alert status="warning" whiteSpace="pre-wrap" flexWrap="wrap">
-            <span>Contract is not verified. However, we found a verified contract with the same bytecode in Blockscout DB </span>
+            <span>Contract is not verified. However, we found a verified contract with the same bytecode in Wefinder DB </span>
             <AddressEntity
               address={{ hash: data.verified_twin_address_hash, is_contract: true }}
               truncation="constant"

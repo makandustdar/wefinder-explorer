@@ -43,13 +43,13 @@ export const infoTagWithLink: AddressMetadataTagApi = {
 
 export const tagWithTooltip: AddressMetadataTagApi = {
   slug: 'blockscout-heroes',
-  name: 'BlockscoutHeroes',
+  name: 'WefinderHeroes',
   tagType: 'classifier',
   ordinal: 42,
   meta: {
-    tooltipDescription: 'The Blockscout team, EVM blockchain aficionados, illuminate Ethereum networks with unparalleled insight and prowess, leading the way in blockchain exploration! 🚀🔎',
+    tooltipDescription: 'The Wefinder team, EVM blockchain aficionados, illuminate Ethereum networks with unparalleled insight and prowess, leading the way in blockchain exploration! 🚀🔎',
     tooltipIcon: 'https://localhost:3100/icon.svg',
-    tooltipTitle: 'Blockscout team member',
+    tooltipTitle: 'Wefinder team member',
     tooltipUrl: 'https://blockscout.com',
   },
 };
